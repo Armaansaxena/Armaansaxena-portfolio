@@ -1,3 +1,20 @@
+/**
+ * ============================================================================
+ * HEADER COMPONENT
+ * ============================================================================
+ * 
+ * TODO: CONFIGURATION NEEDED
+ * --------------------------
+ * 1. Update the logo text/branding
+ * 2. Modify navigation links as needed
+ * 
+ * FUTURE UPGRADES:
+ * - Add a dropdown for more navigation items
+ * - Add language switcher
+ * - Add notification/inbox icon
+ * ============================================================================
+ */
+
 import { motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 import { Menu, X } from "lucide-react";
@@ -5,6 +22,7 @@ import { useState } from "react";
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
