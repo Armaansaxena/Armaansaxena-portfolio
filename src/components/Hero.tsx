@@ -1,7 +1,31 @@
+/**
+ * ============================================================================
+ * HERO COMPONENT
+ * ============================================================================
+ * 
+ * TODO: CONFIGURATION NEEDED
+ * --------------------------
+ * 1. Replace "Your Name" with your actual name
+ * 2. Replace the photo placeholder with your actual photo:
+ *    - Add your photo to src/assets/profile-photo.jpg
+ *    - Import it: import profilePhoto from "@/assets/profile-photo.jpg"
+ *    - Replace the placeholder div with: <img src={profilePhoto} ... />
+ * 3. Update social links with your actual URLs
+ * 4. Add your resume PDF to public/resume.pdf for download functionality
+ * 5. Update the intro text to match your personal brand
+ * 
+ * FUTURE UPGRADES:
+ * - Add animated background particles
+ * - Integrate with CMS for dynamic content
+ * - Add multiple language support
+ * ============================================================================
+ */
+
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Twitter } from "lucide-react";
 import { useEffect, useState } from "react";
 
+// TODO: Update these roles to match your expertise
 const roles = ["Blockchain Developer", "Full Stack Engineer", "Web3 Builder"];
 
 export const Hero = () => {
@@ -34,10 +58,11 @@ export const Hero = () => {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, currentRole]);
 
+  // TODO: Update these links with your actual social profiles
   const socialLinks = [
-    { icon: Github, href: "https://github.com", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
+    { icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
+    { icon: Twitter, href: "https://twitter.com/yourusername", label: "Twitter" },
   ];
 
   return (
@@ -49,87 +74,134 @@ export const Hero = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-6xl mx-auto">
+          {/* Left Side - Introduction */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 text-center lg:text-left"
           >
             <span className="font-mono text-primary text-sm tracking-wider">
               Hello, I'm
             </span>
-          </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-bold mt-4 mb-6 text-foreground"
-          >
-            Alex Chen
-          </motion.h1>
+            {/* TODO: Replace with your actual name */}
+            <h1 className="text-5xl md:text-7xl font-bold mt-4 mb-6 text-foreground">
+              Your Name
+            </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="h-12 md:h-14"
-          >
-            <span className="font-mono text-xl md:text-2xl text-muted-foreground">
-              {displayText}
-              <span className="text-primary animate-pulse">|</span>
-            </span>
-          </motion.div>
+            <div className="h-12 md:h-14">
+              <span className="font-mono text-xl md:text-2xl text-muted-foreground">
+                {displayText}
+                <span className="text-primary animate-pulse">|</span>
+              </span>
+            </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-muted-foreground text-lg mt-6 max-w-xl mx-auto leading-relaxed"
-          >
-            Building decentralized applications and scalable web solutions. 
-            Passionate about smart contracts, DeFi protocols, and creating 
-            seamless user experiences.
-          </motion.p>
+            {/* TODO: Update this intro text */}
+            <p className="text-muted-foreground text-lg mt-6 max-w-xl leading-relaxed">
+              Building decentralized applications and scalable web solutions. 
+              Passionate about smart contracts, DeFi protocols, and creating 
+              seamless user experiences.
+            </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex items-center justify-center gap-4 mt-8"
-          >
-            {socialLinks.map((social) => (
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8">
+              {/* TODO: Add your resume PDF to public/resume.pdf */}
               <motion.a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-lg bg-secondary hover:bg-secondary/80 text-foreground transition-colors"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={social.label}
+                href="/resume.pdf"
+                download
+                className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium flex items-center gap-2 hover:opacity-90 transition-opacity"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <social.icon className="w-5 h-5" />
+                <Download className="w-4 h-4" />
+                Download Resume
               </motion.a>
-            ))}
+              
+              <motion.a
+                href="#contact"
+                className="px-6 py-3 rounded-lg border border-border text-foreground font-medium hover:bg-secondary transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Get In Touch
+              </motion.a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center justify-center lg:justify-start gap-4 mt-8">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-lg bg-secondary hover:bg-secondary/80 text-foreground transition-colors"
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-5 h-5" />
+                </motion.a>
+              ))}
+            </div>
           </motion.div>
 
-          <motion.a
-            href="#about"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="inline-flex items-center gap-2 mt-16 text-muted-foreground hover:text-foreground transition-colors"
+          {/* Right Side - Photo */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex-1 flex justify-center lg:justify-end"
           >
-            <span className="text-sm">Scroll to explore</span>
-            <motion.div
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <ArrowDown className="w-4 h-4" />
-            </motion.div>
-          </motion.a>
+            {/* 
+              TODO: REPLACE THIS PLACEHOLDER WITH YOUR PHOTO
+              -----------------------------------------------
+              1. Add your photo to: src/assets/profile-photo.jpg
+              2. Import at top: import profilePhoto from "@/assets/profile-photo.jpg"
+              3. Replace the div below with:
+                 <img 
+                   src={profilePhoto} 
+                   alt="Your Name"
+                   className="w-72 h-72 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl"
+                 />
+            */}
+            <div className="relative">
+              <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center overflow-hidden">
+                {/* Placeholder - Replace with actual photo */}
+                <div className="text-center p-8">
+                  <div className="w-24 h-24 rounded-full bg-primary/20 mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-4xl text-primary font-bold">YN</span>
+                  </div>
+                  <p className="text-muted-foreground text-sm font-mono">
+                    Add your photo here
+                  </p>
+                </div>
+              </div>
+              {/* Decorative elements */}
+              <div className="absolute -bottom-4 -right-4 w-72 h-72 md:w-96 md:h-96 rounded-2xl border border-primary/30 -z-10" />
+              <div className="absolute -bottom-8 -right-8 w-72 h-72 md:w-96 md:h-96 rounded-2xl border border-primary/10 -z-20" />
+            </div>
+          </motion.div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.a
+          href="#about"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 inline-flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <span className="text-sm">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            <ArrowDown className="w-4 h-4" />
+          </motion.div>
+        </motion.a>
       </div>
     </section>
   );
