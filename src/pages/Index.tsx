@@ -29,6 +29,8 @@ import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { Achievements } from "@/components/Achievements";
+import { Certifications } from "@/components/Certifications";
 
 const Index = () => {
   return (
@@ -49,6 +51,12 @@ const Index = () => {
         
         {/* Projects Section - Featured work with images */}
         <Projects />
+
+        {/* Achievements Section - Featured work with images */}
+        <Achievements />
+
+        {/* Certifications Section - Featured work with images */}
+        <Certifications />
         
         {/* Contact Section - Form with email integration */}
         <Contact />

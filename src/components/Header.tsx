@@ -25,6 +25,8 @@ const navLinks = [
   { href: "#experience", label: "Experience" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
+  { href: "#achievements", label: "Achievements" },
+  { href: "#certifications", label: "Certifications" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -46,7 +48,7 @@ export const Header = () => {
             whileHover={{ scale: 1.02 }}
           >
             <span className="text-primary">&lt;</span>
-            dev
+            AS
             <span className="text-primary">/&gt;</span>
           </motion.a>
 

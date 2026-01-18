@@ -24,6 +24,8 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Github, Linkedin, Twitter } from "lucide-react";
 import { useEffect, useState } from "react";
+import { SiLeetcode, SiCodeforces, SiGeeksforgeeks } from "react-icons/si";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 // TODO: Update these roles to match your expertise
 const roles = ["Blockchain Developer", "Full Stack Engineer", "Web3 Builder"];
@@ -60,9 +62,12 @@ export const Hero = () => {
 
   // TODO: Update these links with your actual social profiles
   const socialLinks = [
-    { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
-    { icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: Twitter, href: "https://twitter.com/yourusername", label: "Twitter" },
+    { icon: Github, href: "https://github.com/Armaansaxena", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/armaan-saxena-3a8185328/", label: "LinkedIn" },
+    { icon: Twitter, href: "https://x.com/Armaan__Saxena", label: "Twitter" },
+    { icon: SiLeetcode, href: "https://leetcode.com/u/armaan_saxena/", label: "LeetCode" },
+    { icon: SiCodeforces, href: "https://codeforces.com/profile/armaan_saxena", label: "Codeforces" },
+    { icon: SiGeeksforgeeks, href: "https://www.geeksforgeeks.org/profile/armaansaxena", label: "GeeksforGeeks" },
   ];
 
   return (
@@ -86,9 +91,9 @@ export const Hero = () => {
               Hello, I'm
             </span>
 
-            {/* TODO: Replace with your actual name */}
-            <h1 className="text-5xl md:text-7xl font-bold mt-4 mb-6 text-foreground">
-              Your Name
+            
+            <h1 className="text-5xl md:text-6xl font-bold mt-4 mb-6 text-foreground">
+              Armaan Saxena
             </h1>
 
             <div className="h-12 md:h-14">
@@ -109,7 +114,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8">
               {/* TODO: Add your resume PDF to public/resume.pdf */}
               <motion.a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/15GFvOsoJV1SQu7OpbYuPMlVnvkxNbJeX/view?usp=sharing"
                 download
                 className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium flex items-center gap-2 hover:opacity-90 transition-opacity"
                 whileHover={{ scale: 1.02 }}
@@ -155,30 +160,13 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex-1 flex justify-center lg:justify-end"
           >
-            {/* 
-              TODO: REPLACE THIS PLACEHOLDER WITH YOUR PHOTO
-              -----------------------------------------------
-              1. Add your photo to: src/assets/profile-photo.jpg
-              2. Import at top: import profilePhoto from "@/assets/profile-photo.jpg"
-              3. Replace the div below with:
-                 <img 
+            
+            <div className="relative">
+              <img 
                    src={profilePhoto} 
                    alt="Your Name"
                    className="w-72 h-72 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl"
                  />
-            */}
-            <div className="relative">
-              <div className="w-72 h-72 md:w-96 md:h-96 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center overflow-hidden">
-                {/* Placeholder - Replace with actual photo */}
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 rounded-full bg-primary/20 mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-4xl text-primary font-bold">YN</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm font-mono">
-                    Add your photo here
-                  </p>
-                </div>
-              </div>
               {/* Decorative elements */}
               <div className="absolute -bottom-4 -right-4 w-72 h-72 md:w-96 md:h-96 rounded-2xl border border-primary/30 -z-10" />
               <div className="absolute -bottom-8 -right-8 w-72 h-72 md:w-96 md:h-96 rounded-2xl border border-primary/10 -z-20" />

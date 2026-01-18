@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { SiLeetcode, SiCodeforces, SiGeeksforgeeks } from "react-icons/si";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,6 +9,9 @@ export const Footer = () => {
     { icon: Github, href: "https://github.com", label: "GitHub" },
     { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
     { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: SiLeetcode, href: "https://leetcode.com/u/armaan_saxena/", label: "LeetCode" },
+    { icon: SiCodeforces, href: "https://codeforces.com/profile/armaan_saxena", label: "Codeforces" },
+    { icon: SiGeeksforgeeks, href: "https://www.geeksforgeeks.org/profile/armaansaxena", label: "GeeksforGeeks" },
   ];
 
   return (
@@ -20,7 +24,7 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="text-muted-foreground text-sm font-mono"
           >
-            © {currentYear} Alex Chen. All rights reserved.
+            © {currentYear} Armaan Saxena. All rights reserved.
           </motion.p>
 
           <motion.div

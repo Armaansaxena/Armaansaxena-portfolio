@@ -24,11 +24,12 @@
 
 import { motion } from "framer-motion";
 import { Loader2, Mail, MapPin, Send } from "lucide-react";
-import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -40,24 +41,51 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    console.log("DEBUG - Env Variables:", {
+      service: import.meta.env.VITE_EMAIL_SERVICE_ID,
+      template: import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+      key: import.meta.env.VITE_EMAIL_PUBLIC_KEY
+    });
+
+    // Environment Variables
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID; // Added JS
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; // Added JS
+    const GREETING_TEMPLATE_ID = import.meta.env.VITE_EMAIL_GREETING_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY; // Added JS
 
     try {
-      // Call the edge function to send email
-      const { data, error } = await supabase.functions.invoke("send-contact-email", {
-        body: formData,
-      });
+      // 1. Send notification to YOU
+      const adminRes = await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        formRef.current!,
+        PUBLIC_KEY
+      );
 
-      if (error) throw error;
+      if (adminRes.text !== 'OK') throw new Error("Admin notification failed");
+
+      // 2. Send greeting email to the SENDER
+      // We use .send() here to map the existing state data to the greeting template
+      await emailjs.send(
+        SERVICE_ID,
+        GREETING_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      );
 
       toast({
         title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        description: "Success! Check your inbox for a confirmation email.",
       });
 
       // Reset form
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Error sending message:", error);
+      console.error("EmailJS Error:", error);
       toast({
         title: "Failed to send message",
         description: "Please try again or email me directly.",
@@ -99,20 +127,21 @@ export const Contact = () => {
           >
             {/* TODO: Update with your email */}
             <a
-              href="mailto:hello@yourname.dev"
+              href="mailto:armaansaxena704@gmail.com?subject=Contacting%20from%20Portfolio&body=Hi%20Armaan,"
               className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Mail className="w-4 h-4 text-primary" />
-              <span className="text-sm">hello@yourname.dev</span>
+              <span className="text-sm">armaansaxena704@gmail.com</span>
             </a>
             {/* TODO: Update with your location */}
             <div className="flex items-center gap-2 text-muted-foreground">
               <MapPin className="w-4 h-4 text-primary" />
-              <span className="text-sm">Your City, Country</span>
+              <span className="text-sm">Gwalior, India</span>
             </div>
           </motion.div>
 
           <motion.form
+            ref={formRef} // Attach the ref here
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -122,19 +151,15 @@ export const Contact = () => {
           >
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
+                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
+                  name="from_name" // Important: match your EmailJS template variable
                   value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-foreground placeholder:text-muted-foreground"
                   placeholder="Your name"
                   required
@@ -142,19 +167,15 @@ export const Contact = () => {
                 />
               </div>
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
+                  name="reply_to" // Important: match your EmailJS template variable
                   value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all text-foreground placeholder:text-muted-foreground"
                   placeholder="your@email.com"
                   required
@@ -163,18 +184,14 @@ export const Contact = () => {
               </div>
             </div>
             <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-foreground mb-2"
-              >
+              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                 Message
               </label>
               <textarea
                 id="message"
+                name="message" // Important: match your EmailJS template variable
                 value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={5}
                 className="w-full px-4 py-3 rounded-lg bg-background border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-none text-foreground placeholder:text-muted-foreground"
                 placeholder="Tell me about your project..."

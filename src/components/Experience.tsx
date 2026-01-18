@@ -22,38 +22,31 @@ import { Briefcase, Calendar } from "lucide-react";
 
 // TODO: Replace with your actual work experience
 const experiences = [
-  {
-    title: "Senior Blockchain Developer",
-    company: "DeFi Protocol Inc.",
-    period: "2022 - Present",
+    
+    {
+    title: "AI & Cloud Intern",
+    company: "Microsoft Learn (Azure & AI) - Virtual Internship",
+    period: "Jul 2024 - Aug 2024",
     description:
-      "Leading smart contract development for a multi-chain DeFi platform. Built yield optimization strategies handling $50M+ TVL. Implemented security best practices and conducted code audits.",
-    technologies: ["Solidity", "Rust", "React", "The Graph"],
+      "Gained hands-on experience with Microsoft Azure AI services and cloud infrastructure. Implemented responsible AI practices and explored automated machine learning workflows to solve real-world data challenges.",
+    technologies: ["Microsoft Azure", "Artificial Intelligence", "Cloud Computing"],
   },
   {
-    title: "Full Stack Developer",
-    company: "Web3 Startup",
-    period: "2020 - 2022",
+    title: "Cloud Engineering Participant",
+    company: "Google Cloud Arcade Program",
+    period: "Jan 2025 - Mar 2025",
     description:
-      "Developed NFT marketplace with lazy minting and auction features. Built microservices architecture handling 10k+ daily transactions. Led frontend team of 4 developers.",
-    technologies: ["TypeScript", "Node.js", "PostgreSQL", "AWS"],
+      "Successfully completed specialized labs in Google Cloud Platform (GCP). Focused on configuring cloud instances, managing storage buckets, and deploying scalable applications using Google Cloud Shell.",
+    technologies: ["GCP", "Cloud Shell", "Infrastructure as Code", "Networking"],
   },
   {
-    title: "Software Engineer",
-    company: "Tech Company",
-    period: "2018 - 2020",
+    title: "Tech Contributor",
+    company: "GirlScript Summer of Code (GSSoC) 2025",
+    period: "2025",
     description:
-      "Built scalable REST APIs and real-time data pipelines. Migrated legacy systems to modern cloud infrastructure. Improved system performance by 40% through optimization.",
-    technologies: ["Python", "Django", "React", "Docker"],
-  },
-  {
-    title: "Junior Developer",
-    company: "Digital Agency",
-    period: "2016 - 2018",
-    description:
-      "Developed responsive web applications for various clients. Collaborated with design team to implement pixel-perfect UIs. Maintained and improved existing codebases.",
-    technologies: ["JavaScript", "HTML/CSS", "PHP", "MySQL"],
-  },
+      "Recognized as a top contributor in India’s largest open-source summer program. Collaborated on diverse codebases, submitted quality pull requests for feature enhancements, and participated in peer code reviews.",
+    technologies: ["Git", "GitHub", "Open Source", "Software Development Life Cycle"],
+  }
 ];
 
 export const Experience = () => {

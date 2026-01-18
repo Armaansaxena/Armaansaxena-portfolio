@@ -22,48 +22,28 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 
 // Import project images
-import projectDefi from "@/assets/project-defi.jpg";
-import projectNft from "@/assets/project-nft.jpg";
-import projectBridge from "@/assets/project-bridge.jpg";
-import projectDao from "@/assets/project-dao.jpg";
+import projectNotesChain from "@/assets/projectNotesChain.png";
+import projectYoutweet from "@/assets/projectYouTweet.png";
+
 
 // TODO: Replace with your actual projects
 const projects = [
   {
-    title: "DeFi Yield Aggregator",
+    title: "NotesChain",
     description:
-      "A decentralized yield optimization platform that automatically moves funds between protocols for maximum returns.",
-    tags: ["Solidity", "React", "The Graph", "Hardhat"],
-    github: "https://github.com/yourusername/defi-aggregator",
-    live: "https://defi-aggregator.example.com",
-    image: projectDefi,
+      "A decentralized note-taking application on Solana that ensures data immutability and user-owned privacy by removing centralized login systems.",
+    tags: ["Solana", "Rust", "React", "Web3.js", "Vercel"],
+    github: "https://github.com/Armaansaxena/Notes-Chain", // Standard link from your resume profile
+    live: "https://noteschain.vercel.app/", // Replace with your actual project link
+    image: projectNotesChain,
   },
   {
-    title: "NFT Marketplace",
+    title: "YouTweet API",
     description:
-      "Full-featured NFT marketplace with lazy minting, royalties, and auction functionality built on Ethereum.",
-    tags: ["Ethereum", "Next.js", "IPFS", "TypeScript"],
-    github: "https://github.com/yourusername/nft-marketplace",
-    live: "https://nft-marketplace.example.com",
-    image: projectNft,
-  },
-  {
-    title: "Cross-Chain Bridge",
-    description:
-      "A secure bridge protocol enabling seamless asset transfers between EVM-compatible blockchains.",
-    tags: ["Solidity", "Node.js", "PostgreSQL", "Web3"],
-    github: "https://github.com/yourusername/cross-chain-bridge",
-    live: "https://bridge.example.com",
-    image: projectBridge,
-  },
-  {
-    title: "DAO Governance Platform",
-    description:
-      "Decentralized governance platform with proposal creation, voting, and treasury management features.",
-    tags: ["Smart Contracts", "React", "GraphQL", "Tailwind"],
-    github: "https://github.com/yourusername/dao-governance",
-    live: "https://dao-governance.example.com",
-    image: projectDao,
+      "A production-grade backend for video and social media platforms, featuring secure JWT authentication and optimized media storage using Cloudinary.",
+    tags: ["Node.js", "Express.js", "MongoDB", "Cloudinary", "JWT"],
+    github: "https://github.com/Armaansaxena/Youtweet",
+    image: projectYoutweet,
   },
 ];
 

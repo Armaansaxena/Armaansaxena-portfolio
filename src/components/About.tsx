@@ -3,20 +3,17 @@ import { Code2, Blocks, Rocket } from "lucide-react";
 
 const highlights = [
   {
-    icon: Blocks,
-    title: "Blockchain Expert",
-    description: "Smart contracts, DeFi protocols, and Web3 infrastructure",
-  },
-  {
-    icon: Code2,
-    title: "Full Stack Dev",
-    description: "Modern web apps with React, Node.js, and cloud services",
-  },
-  {
-    icon: Rocket,
-    title: "Performance Focused",
-    description: "Optimized solutions that scale from startup to enterprise",
-  },
+  icon: Blocks,
+  title: "Blockchain & Web3 Developer",
+  description: "Building smart contracts and decentralized applications using Solana, Rust, and modern Web3 tooling."
+},
+{
+  icon: Code2,
+  title: "Full-Stack Developer",
+  description: "Developing scalable web applications with React, Node.js, Express, MongoDB, and modern frontend tooling."
+}
+
+  
 ];
 
 export const About = () => {
@@ -36,15 +33,14 @@ export const About = () => {
           <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6 text-foreground">
             Bridging Web2 and Web3
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            With over 5 years of experience in software development, I specialize 
-            in building decentralized applications and full-stack web solutions. 
-            My expertise spans from writing secure smart contracts to architecting 
-            scalable backend systems and crafting intuitive user interfaces.
-          </p>
+            I develop full-stack applications and decentralized products using modern web
+            technologies and blockchain platforms. My experience includes frontend
+            engineering, backend API development, and Web3 integrations, with a strong
+            emphasis on clean architecture, performance optimization, and intuitive user
+            experiences.
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {highlights.map((item, index) => (
             <motion.div
               key={item.title}
