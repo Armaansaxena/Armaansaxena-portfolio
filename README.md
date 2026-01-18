@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+# Armaan Saxena | Full Stack & Web3 Developer 🚀
 
-## Project info
+Welcome to my professional portfolio repository. This project showcases my journey, technical skills, and contributions to the open-source and blockchain ecosystem.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**Live Demo:** [https://armaansaxena.vercel.app/](https://armaansaxena.vercel.app/)
 
-## How can I edit this code?
+## 🛠️ Tech Stack
 
-There are several ways of editing your application.
+This portfolio is built with a focus on performance, accessibility, and clean design:
 
-**Use Lovable**
+- **Frontend:** React.js, TypeScript, Vite
+- **Styling:** Tailwind CSS, shadcn/ui
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Backend Integration:** EmailJS (for serverless contact handling)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## ✨ Key Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Automated Contact System:** Dual-email logic that notifies me of new messages and sends a professional greeting to the sender.
+- **Dynamic Project Gallery:** Featured work with direct links to GitHub repositories and live deployments.
+- **Achievement & Certification Vault:** Interactive cards with hover overlays to view verified digital certificates.
+- **Optimized Performance:** Fully responsive design with a minimalistic light theme.
 
-**Use your preferred IDE**
+## 🚀 Local Development
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+If you'd like to run this project locally to explore the code:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. **Clone the repository:**
+   ```sh
+   git clone [https://github.com/Armaansaxena/portfolio.git](https://github.com/Armaansaxena/portfolio.git)
+   cd portfolio
+2. **Install dependencies:**
+    ```sh
+    npm install
+3. **Set up Environment Variables:**
+    Create a .env file in the root directory and add your EmailJS credentials. This is crucial for the contact form to function locally:
+    ```sh
+    VITE_EMAIL_SERVICE_ID=your_service_id
+    VITE_EMAIL_TEMPLATE_ID=your_admin_notification_template_id
+    VITE_EMAIL_GREETING_TEMPLATE_ID=your_sender_greeting_template_id
+    VITE_EMAIL_PUBLIC_KEY=your_public_key
+4. **Start the development server:**
+    ```sh
+    npm run dev
 
-Follow these steps:
+## 📂 Project Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+* **`/src/components`**: Contains the core sections of the site (Hero, Projects, Certifications, Contact).
+* **`/src/hooks`**: Custom React hooks for UI interactions and toast notifications.
+* **`/src/assets`**: Optimized images and project screenshots.
+* **`/src/integrations`**: Configuration for external services like EmailJS.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## 🛡️ Architecture & Security
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project utilizes a **Serverless Architecture**. By using EmailJS, the frontend communicates directly with the email service, removing the need for a dedicated Node.js backend while keeping API keys secure via environment variables and domain whitelisting.
 
-**Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🤝 Connect With Me
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Feel free to reach out if you're interested in collaborating on Web3 projects, Open Source, or Full Stack development!
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+* **LinkedIn**: [Armaan Saxena](https://www.linkedin.com/in/armaan-saxena-3a8185328/)
+* **GitHub**: [@Armaansaxena](https://github.com/Armaansaxena)
+* **Portfolio**: [armaansaxena.vercel.app](https://armaansaxena.vercel.app/)
+* **Email**: [armaansaxena704@gmail.com](mailto:armaansaxena704@gmail.com)
