@@ -82,9 +82,9 @@ export const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-6xl mx-auto">
           {/* Left Side - Introduction */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 15 }} // Lift effect feels more modern
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
             className="flex-1 text-center lg:text-left"
           >
             <span className="font-mono text-primary text-sm tracking-wider">
@@ -155,18 +155,29 @@ export const Hero = () => {
 
           {/* Right Side - Photo */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.95 }} // Scale is smoother than X-axis movement
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              delay: 0.4, 
+              ease: [0.22, 1, 0.36, 1] // Custom "Expo" ease for a premium feel
+            }}
             className="flex-1 flex justify-center lg:justify-end"
           >
             
             <div className="relative">
               <img 
-                   src={profilePhoto} 
-                   alt="Your Name"
-                   className="w-72 h-72 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl"
-                 />
+                src={profilePhoto} 
+                alt="Armaan Saxena"
+                fetchPriority="high" // Prioritizes this download over other scripts
+                loading="eager"      // Forces immediate loading
+                className="w-72 h-72 md:w-96 md:h-96 rounded-2xl object-cover shadow-2xl"
+                style={{ 
+                  aspectRatio: "1/1",           // Prevents layout shift/jumping
+                  contentVisibility: "auto",    // Optimizes rendering
+                  backgroundColor: "#1a1a1a"    // Subtle placeholder color
+                }}
+              />
               {/* Decorative elements */}
               <div className="absolute -bottom-4 -right-4 w-72 h-72 md:w-96 md:h-96 rounded-2xl border border-primary/30 -z-10" />
               <div className="absolute -bottom-8 -right-8 w-72 h-72 md:w-96 md:h-96 rounded-2xl border border-primary/10 -z-20" />
