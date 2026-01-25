@@ -114,7 +114,7 @@ export const Hero = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8">
               {/* TODO: Add your resume PDF to public/resume.pdf */}
               <motion.a
-                href="https://drive.google.com/file/d/15GFvOsoJV1SQu7OpbYuPMlVnvkxNbJeX/view?usp=sharing"
+                href="https://drive.google.com/uc?export=download&id=15GFvOsoJV1SQu7OpbYuPMlVnvkxNbJeX"
                 download
                 className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium flex items-center gap-2 hover:opacity-90 transition-opacity"
                 whileHover={{ scale: 1.02 }}
