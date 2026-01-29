@@ -24,10 +24,20 @@ import { ExternalLink, Github } from "lucide-react";
 // Import project images
 import projectNotesChain from "@/assets/projectNotesChain.png";
 import projectYoutweet from "@/assets/projectYouTweet.png";
+import projectArmEthSol from "@/assets/projectArmEthSol.png";
 
 
 // TODO: Replace with your actual projects
 const projects = [
+  {
+    title: "Solana Trading Bot",
+    description:
+      "A high-performance Telegram bot for real-time Solana & Ethereum wallet management. Features secure AES-256 encryption for private keys and real-time balance tracking.",
+    tags: ["Solana", "Bun", "AWS EC2", "PostgreSQL", "Docker"],
+    github: "https://github.com/Armaansaxena/Solana-Trading-Bot", // Update with specific repo if public
+    live: "https://t.me/ArmEthSol_bot",
+    image: projectArmEthSol,
+  },
   {
     title: "NotesChain",
     description:
