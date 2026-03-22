@@ -66,7 +66,6 @@ export const Hero = () => {
     { icon: Linkedin, href: "https://www.linkedin.com/in/armaan-saxena-3a8185328/", label: "LinkedIn" },
     { icon: Twitter, href: "https://x.com/Armaan__Saxena", label: "Twitter" },
     { icon: SiLeetcode, href: "https://leetcode.com/u/armaan_saxena/", label: "LeetCode" },
-    { icon: SiCodeforces, href: "https://codeforces.com/profile/armaan_saxena", label: "Codeforces" },
     { icon: SiGeeksforgeeks, href: "https://www.geeksforgeeks.org/profile/armaansaxena", label: "GeeksforGeeks" },
   ];
 
